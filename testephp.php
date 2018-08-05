@@ -808,7 +808,7 @@ array.join(",");
 <br/>
 <br/>
 
-<!--  #############################################################################-->
+<!--  --------------------------------------------------------------- -->
 <hr/>
 
 <style type="text/css">
@@ -878,7 +878,7 @@ array.join(",");
 
 
 
-<!-- ############################################################### -->
+<!-- -------------------------------------------------------------------------------------- -->
 
 </br></br>
 <hr/>
@@ -886,8 +886,8 @@ array.join(",");
 <h3>MÉDIA AQUI ESTÁ OK... FALTANDO BUSCAR DO ID DE UM INPUT.. ESTÁ COM NUM. FIXO.</h3>
 </br>
 
-<input type="text" id="sem11"></br></br>
-<input type="text" id="sem21"></br></br>
+<input type="text" id="sem1"></br></br>
+<input type="text" id="sem2"></br></br>
 <button onclick="enviar1()">Enviar</button></br></br>
 <p id="media1">Média:</p>
 
@@ -896,9 +896,9 @@ array.join(",");
 <script>
 
 function enviar1(){
-var sem11 = 65;
-var sem21 =	60;
-var x = (sem11 + sem21) / 2;
+var sem1 = 65;
+var sem2 =	60;
+var x = (sem1 + sem2) / 2;
 
 document.getElementById("media1").innerHTML ="Média: "+ x;
 
@@ -918,12 +918,244 @@ if (x >= 60) {
 }    
 </script>
 
+<!-- ------------------------------------------------------------------------------------------- -->
+<br/>
+<br/>
+<hr/>
 
+<h2> PHP - comando FOREACH </h2>	
+<br/>
+ Este comando é um tipo de looping que auxilia no processo de listagem de arrays.<br/>
+ exemplo de um array simples com apenas valores sem as chaves.<br/>
+<br/>
+
+<?php
+
+ $nome = array('Robinson','Jéssica', 'Melina', 'Mennson');
+
+ 	foreach ($nome as $aluno) {
+ 		
+ 		echo "Aluno: ".$aluno.'<br/>';
+ 	}
+?>
+<br/><br/>
+<hr/>
+<h3>PHP - comando FOREACH </h3>
+<br/>
+Exemplo de várias arrays dentro de uma array onde cada array têm duas chaves com seus respectivos valores.
+<br/><br/>
+
+<?php
+
+	$aluno = array(
+
+				array('nome' => 'Robinson' , 'idade' => 51),
+				array('nome' => 'Jéssica'  , 'idade' => 29),
+				array('nome' => 'Melina'   , 'idade' => 04),
+				array('nome' => 'Mennson'  , 'idade' => 30),
+	);
+
+		foreach ($aluno as  $nome ) {
+			
+				echo "Aluno: ".$nome['nome']." - idade: ".$nome['idade']." anos.<br/>";
+				
+		}
+
+?>
+<br/><br/>
+<hr/>
+<h3>PHP comando FOREACH</h3>
+
+Esse exemplo com uma array com várias chaves e valores<br/>
+
+<br/><br/>
+
+<?php
+
+	$aluno = array(
+
+			'nome' => 'Robinson',
+			'idade' => 51,
+			'cidade' => 'Natal',
+			'estado' => 'RN',
+
+			 );
+
+		foreach ($aluno as $chave => $nome) {
+			
+				echo $chave." = ".$nome."<br/>";
+		}
+
+?>
+<!--   -------------------------------------------------------------------------------  -->
+<br/><br/>
+<hr/>
+
+<h3>FOREACH de um aluno do </h3>
+
+<form method="POST" action= "" id="formulario" >
+ <h1>Ficha de Cadastro para emprego.</h1>
+ 	Nome:<input type="text" name="nome"><br><br>
+ 	Email:<input type="email" name="email"><br><br>
+ 	Data de Nasc.<input type="date" name="data"><br><br>
+ 	Cargo:<select name="cargo">
+ 			<option></option>
+ 			<option>Ajudante</option>
+	    	<option>Conferente</option>  
+	    	<option>Gerente</option>  
+ 	      </select><br><br>
+ 	<input type="submit" name="Enviar">
+ </form>
+
+<?php
+extract($_POST);
+
+ $nome = array("nome" =>$nome, "email" =>$email, "data" =>$data, "cargo" =>$cargo);
+
+foreach($nome as $candidato) {
+	echo $candidato. "<br>";
+} 
+
+?>
+</br/><br/>
+<!-- -------------------------------------------------------------------------- -->
+<br/>
+<hr/>
+<h4>RAND - aleatório</h4><br/>
+
+Duas arrays com quatro valores cada<br/>
+usando o switch<br/><br/>
+
+<?php
+
+
+ $sorteado = array('Robinson', 'Jéssica', 'Melina', 'Mennson');
+ $brinde = array('bicicleta', 'patins', 'video game', 'violão' );
+
+ $sorteio = rand(0, 3);
+ $itens   = rand(0, 3);
+
+
+ 	
+
+	switch ($sorteio) {
+
+	 	case 0:
+
+	 		 echo "<strong>".$sorteado[$sorteio]."</strong> ganhou um(a) ".$brinde[$itens];
+	 		break;
+
+	 	case 1:
+	 		 echo "<strong>".$sorteado[$sorteio]."</strong> ganhou um(a) ".$brinde[$itens];
+	 		break;
+
+	 	case 2:
+
+	 		echo "<strong>".$sorteado[$sorteio]."</strong> ganhou um(a) ".$brinde[$itens];
+	 		break;
+
+
+	 	case 3:
+	 		echo "<strong>".$sorteado[$sorteio]."</strong> ganhou um(a) ".$brinde[$itens];
+	 		break;	
+	 	
+	 	default:
+	 		# code...
+	 		break;
+	 } 
+
+?>
+<!-- -------------------------------------------------------------------------------- -->
+<br/><br/>
+<hr/>
+
+<h4>Uma função para data e tempo</h4><p>
+<h5>As principais funções de data e tempo: date, time, mktime, srttotime</h5>
+
+<?php
+	date_default_timezone_set('america/sao_paulo');
+
+	$dataAtual = date("d, F, Y, \à\s H:i:s");
+
+	echo "Data de hoje: ".$dataAtual."<br/><br/>";
+	
+
+	
+?>
+</br><br/>
+<!-- ------------------------------------------------------------------- -->
+<hr/>
+<h4>Funções matemáticas</h4><p>
+
+<?php
+
+echo 'função ceil -> arredonda para cima números decimais</p>';
+
+$ceil = 7.5738;
+
+echo "7.5783 arredondado: ".ceil($ceil).'<br/><br/>';
+
+
+
+echo "função floor --> arredonda  para baixo<br/> ";
+
+$floor = 7.89887899;
+
+echo "7.89887899 arredondado para baixo: ".floor($floor).'<br/><br/>';
+
+
+
+$expoente = pow(2, 3);
+
+echo "Expoente de 2³: ".$expoente.'<br/><br/>';
+
+?>
+<br/><br/>
+<hr/>
+<h4>MANIPULAÇÃO DE TEXTOS</h4>
+
+<p>EXPLODE --> divide uma string em um array</p>
+
+<?php
+
+$explode = 'Robinson Jéssica Melina Mennson';
+
+$exp = explode(' ', $explode); // usa dois parâmetros -- delimitador "espaço" faz  com que divida todos os nomes em arrays.
+                               // se eu colocar entre aspas Robinson, vão ficar apenas tres strings, o Robinson corta. 
+print_r($exp);
+
+?>
+<br/>
+<p>IMPLODE --> junta um array em uma string</p>
+<?php
+
+	$imp = array('Robinson', 'Jéssica', 'Melina', 'Mennson');
+
+	$implode = implode(" ", $imp);
+
+	echo $implode;
+?>
+<br/>
+<p>NUMBER_FORMAT --> formata números</p>
+<?php
+
+$number = '7898989.87998';
+
+$numberFormat = number_format($number,"2", ",", "."); // aceita 1, 2 ou 4 parâmetros, não 3.
+													  // o primeiro foi a variável, o segundo qtde de casas decimais, e ponta e vírgula 	
+
+echo $numberFormat;
+
+?>
+
+echo $numberFormat;
 
 
 
 </body>
 </html>
+
+
 
 
 
